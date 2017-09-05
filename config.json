@@ -1,0 +1,27 @@
+{
+	"name": "Auto DAGs",
+
+	"namespace": "Vanderbilt\\AutoDAGsExternalModule",
+
+	"authors": [
+		{
+			"name": "Mark McEver",
+			"email": "mark.mcever@vanderbilt.edu",
+			"institution": "Vanderbilt University Medical Center"
+		}
+	],
+
+	"permissions": [
+		"hook_save_record"
+	],
+
+	"description": "Automatically creates, renames, and assigns records to DAGs based on a specified field.",
+
+	"project-settings": [
+		{
+			"key": "dag-field",
+			"name": "Field used to generate DAGs",
+			"type": "field-list"
+		}
+	]
+}
