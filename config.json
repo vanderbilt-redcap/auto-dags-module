@@ -23,5 +23,15 @@
 			"name": "Field used to generate DAGs",
 			"type": "field-list"
 		}
-	]
+	],
+
+	"links": {
+		"project": [
+			{
+				"name": "Set DAG for all records",
+				"icon": "report",
+				"url": "set-all-dags"
+			}
+		]
+	}
 }
