@@ -1,9 +1,24 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
 <?php
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
 	?>
 	<form method="post">
-		<button onclick="this.remove(); return confirm('Are you sure to want to automatically set all DAGs based on the specified field?')">Set the DAG for all records</button>
+		<button>Set the DAG for all records</button>
 	</form>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				var returnValue = confirm('Are you sure to want to automatically set all DAGs based on the specified field?')
+
+				if(returnValue){
+					$('form').hide();
+				}
+
+				return returnValue
+			})
+		})
+	</script>
 	<?php
 }
 else{ // POST
