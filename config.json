@@ -15,7 +15,7 @@
 		"hook_save_record"
 	],
 
-	"description": "Automatically creates, renames, and assigns records to DAGs based on a specified field.",
+	"description": "Automatically creates, renames, and assigns records to Data Access Groups (DAGs) based on a specified Text field, in which the value of the field becomes the name of the DAG. If the DAG already exists, then the record will be assigned to the existing DAG.",
 
 	"project-settings": [
 		{
