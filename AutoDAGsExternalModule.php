@@ -9,6 +9,10 @@ class AutoDAGsExternalModule extends \ExternalModules\AbstractExternalModule{
 	private $groupsByID;
 
 	function redcap_save_record($project_id, $record, $instrument, $event_id, $group_id, $survey_hash, $response_id, $repeat_instance){
+		$this->setDAGFromField($project_id, $record, $group_id);
+	}
+
+	function setDAGFromField($project_id, $record, $group_id){
 		$currentGroupId = !is_null($group_id) ? intval($group_id) : $group_id;
 		$dagFieldName = $this->getProjectSetting('dag-field');
 		if(empty($dagFieldName)){
