@@ -1,6 +1,9 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
 <?php
+
+namespace ExternalModules;
+
+include ExternalModules::getProjectHeaderPath();
+
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
 	?>
 	<form method="post">
@@ -28,9 +31,15 @@ else{ // POST
 	foreach($data as $recordId=>$records){
 		foreach($records as $eventId=>$record){
 			$_GET['event_id'] = $eventId;
-			$module->hook_save_record($pid, $recordId);
+
+			// Pass a group id that would never exist to force the group to get set regardless (so we don't have to look up each group id).
+			$groupId = PHP_INT_MAX;
+
+			$module->setDAGFromField($pid, $recordId, $groupId);
 		}
 	}
 
 	echo 'Done!';
 }
+
+include ExternalModules::getProjectFooterPath();
