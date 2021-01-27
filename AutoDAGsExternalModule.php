@@ -28,7 +28,9 @@ class AutoDAGsExternalModule extends \ExternalModules\AbstractExternalModule{
 			$groupId = null;
 		}
 		else{
-			$fieldLabel = $this->getChoiceLabel($dagFieldName, $fieldValue);
+			global $Proj;
+			$dagFieldChoices = \parseEnum($Proj->metadata[$dagFieldName]['element_enum']);
+			$fieldLabel = $dagFieldChoices[$fieldValue];
 
 			$groupName = $fieldLabel . self::LABEL_VALUE_SEPARATOR . $fieldValue;
 
