@@ -15,12 +15,12 @@
 		"redcap_save_record"
 	],
 
-	"description": "Automatically creates, renames, and assigns records to Data Access Groups (DAGs) based on a specified Text or Notes field, in which the value of the field becomes the name of the DAG. If the DAG already exists, then the record will be assigned to the existing DAG. An extra page is also provided for assigning the DAG for all records at once.",
+	"description": "Automatically creates, renames, and assigns records to Data Access Groups (DAGs) based on the value of a specified field.  The value of that field becomes the name of the DAG.  If the DAG already exists, then the record will be assigned to the existing DAG. An extra page is also provided for assigning the DAG for all records at once.",
 
 	"project-settings": [
 		{
 			"key": "dag-field",
-			"name": "Choose a field (Text/Notes fields only) whose values will be used to generate Data Access Groups",
+			"name": "Choose a field whose values will be used to generate DAGs.  The following field types are currently supported: text, notes, dropdown, and radio button (including yes/no, true/false)",
 			"type": "field-list"
 		}
 	],
