@@ -38,6 +38,7 @@ class AutoDAGsExternalModule extends \ExternalModules\AbstractExternalModule{
 			}
 			else if($existingGroupName != $groupName){
 				$this->renameDAG($groupId, $groupName);
+				$this->groupsByID[$groupId] = $groupName;
 			}
 		}
 
@@ -69,11 +70,5 @@ class AutoDAGsExternalModule extends \ExternalModules\AbstractExternalModule{
 		$this->groupsByID[$groupId] = $groupName;
 
 		return $groupId;
-	}
-
-	public function renameDAG($groupId, $groupName){
-		parent::renameDAG($groupId, $groupName);
-
-		$this->groupsByID[$groupId] = $groupName;
 	}
 }
