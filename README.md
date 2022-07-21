@@ -11,6 +11,7 @@ To use:
 1.	Click on configure and choose a field that will trigger the Auto DAGs
     *	Or click on Set DAG for all records (then click ok) 
 1.	This will allow you to set the DAGs for the project.
+1.	Choose whether Auto DAGs should fire on just the instrument containing the DAG field, or on any instrument (default).
 1.	Once the configuration has been saved click Set DAG for all Records under external modules in the left-hand column
 1.	This will allow you to verify the configuration and set the auto DAGS based on your project’s needs.
 1.	You will see the changes, after clicking on DAGS in the left-hand column. 
