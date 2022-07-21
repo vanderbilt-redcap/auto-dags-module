@@ -22,7 +22,11 @@
 			"key": "dag-field",
 			"name": "Choose a field whose values will be used to generate DAGs.  The following field types are currently supported: text, notes, dropdown, and radio button (including yes/no, true/false)",
 			"type": "field-list"
-		}
+		},{
+            "key": "curr-instr-only",
+            "name": "Apply only upon saving instrument containing DAG field? If left unchecked, saving any instrument in a record will trigger DAG assignment",
+            "type": "checkbox"
+        }
 	],
 
 	"links": {

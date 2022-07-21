@@ -9,15 +9,17 @@ class AutoDAGsExternalModule extends \ExternalModules\AbstractExternalModule{
 	private $groupsByID;
 
 	function redcap_save_record($project_id, $record, $instrument, $event_id, $group_id, $survey_hash, $response_id, $repeat_instance){
-		$this->setDAGFromField($project_id, $record, $group_id);
-	}
-
-	function setDAGFromField($project_id, $record, $group_id){
-		$currentGroupId = !is_null($group_id) ? intval($group_id) : $group_id;
 		$dagFieldName = $this->getProjectSetting('dag-field');
 		if(empty($dagFieldName)){
 			return;
 		}
+        $currInstrumentFields = \REDCap::getFieldNames($instrument);
+        if (in_array($dagFieldName, $currInstrumentFields) or !($this->getProjectSetting('curr-instr-only')))
+		{$this->setDAGFromField($project_id, $record, $group_id, $dagFieldName);}
+	}
+
+	function setDAGFromField($project_id, $record, $group_id, $dagFieldName){
+		$currentGroupId = !is_null($group_id) ? intval($group_id) : $group_id;
 
 		$recordIdFieldName = \REDCap::getRecordIdField();
 		$data = json_decode(\REDCap::getData($project_id, 'json', [$record], [$recordIdFieldName, $dagFieldName]))[0];
