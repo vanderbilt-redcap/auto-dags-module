@@ -30,7 +30,7 @@ class AutoDAGsExternalModule extends \ExternalModules\AbstractExternalModule{
 			$groupId = null;
 		}
 		else{
-			$fieldLabel = $this->getChoiceLabel($dagFieldName, $fieldValue);
+			$fieldLabel = $this->getChoiceLabel($dagFieldName)[$fieldValue];
 
 			$groupName = $fieldLabel . self::LABEL_VALUE_SEPARATOR . $fieldValue;
 
