@@ -26,6 +26,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 }
 else{ // POST
 	$pid = $_GET['pid'];
+	$dagFieldName = $module->getProjectSetting('dag-field');
 	$recordIdFieldName = \REDCap::getRecordIdField();
 	$data = \REDCap::getData($pid, 'array', null, [$recordIdFieldName]);
 	foreach($data as $recordId=>$records){
@@ -35,7 +36,7 @@ else{ // POST
 			// Pass a group id that would never exist to force the group to get set regardless (so we don't have to look up each group id).
 			$groupId = PHP_INT_MAX;
 
-			$module->setDAGFromField($pid, $recordId, $groupId);
+			$module->setDAGFromField($pid, $recordId, $groupId, $dagFieldName);
 		}
 	}
 
