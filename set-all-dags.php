@@ -1,6 +1,8 @@
 <?php
-
 namespace ExternalModules;
+
+use Vanderbilt\AutoDAGsExternalModule\AutoDAGsExternalModule as module;
+/** @var module $module */
 
 include ExternalModules::getProjectHeaderPath();
 
