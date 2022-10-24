@@ -49,6 +49,8 @@ class AutoDAGsExternalModule extends \ExternalModules\AbstractExternalModule{
                 return false;
             }
 
+            \REDCap::logEvent($this->getModuleName() . "\n(DEBUG DAG)", "GroupID is " . json_encode($groupId) . " \n " . json_encode($existingGroupName),'',$record,null,$project_id);
+
 			if($groupId == null){
 				$groupId = $this->createDAG($groupName);
                 \REDCap::logEvent($this->getModuleName() . "\n(Created DAG)", "A new dag named $groupName has been created",'',$record,null,$project_id);
